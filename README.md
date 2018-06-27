@@ -1,6 +1,6 @@
 <img src="docs/logo.png" />
 
-# Introduction to React Native and GraphQL - ADDC 2018
+# Movies & Directors - GraphQL Server - ADDC Workshop 2018
 
 This is the companion repository for the Workshop "Introduction to React Native and GraphQL for App Development" at ADDC 2018 in Barcelona.
 
