@@ -10,11 +10,7 @@ const movies = [
     {id: 2, title: 'Mad Max: Fury Road', year: 2015, directorId: 2},
     {id: 3, title: 'Memento', year: 2000, directorId: 1}]
 
-const moviesByDirectorId = ({ directorId }) => {
-    return _.filter(movies, { 'directorId': parseInt(directorId) })
-}
-const directorByMovieId = ({ movieId }) => {
-    return _.find(directors, function (d) { return d.movies.includes(parseInt(movieId)) })
-}
+const allDirectors = () => directors
+const allMovies = () => movies
 
-module.exports = {moviesByDirectorId, directorByMovieId, directors, movies}
+module.exports = { allDirectors, allMovies }
