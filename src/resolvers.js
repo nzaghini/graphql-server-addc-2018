@@ -1,29 +1,28 @@
 import _ from 'lodash'
-import MovieService from './dataSource/movieService'
 
 const resolvers = {
     Query: {
-        allDirectors () {
-            return MovieService.allDirectors()
+        allDirectors (root, args, ctx, info) {
+            return ctx.movieService.allDirectors()
         },
-        allMovies () {
-            return MovieService.allMovies()
+        allMovies (root, args, ctx, info) {
+            return ctx.movieService.allMovies()
         },
-        directorOf (root, args, context, info) {
-            return directorByMovieId(MovieService.allDirectors(), args)
+        directorOf (root, args, ctx, info) {
+            return directorByMovieId(ctx.movieService.allDirectors(), args)
         },
-        moviesBy (root, args, context, info) {
-            return moviesByDirectorId(MovieService.allMovies(), args)
+        moviesBy (root, args, ctx, info) {
+            return moviesByDirectorId(ctx.movieService.allMovies(), args)
         }
     },
     Director: {
-        movies (root, args, context, info) {
-            return moviesByDirectorId(MovieService.allMovies(), { 'directorId': root.id })
+        movies (root, args, ctx, info) {
+            return moviesByDirectorId(ctx.movieService.allMovies(), { 'directorId': root.id })
         }
     },
     Movie: {
-        director (root, args, context, info) {
-            return directorByMovieId(MovieService.allDirectors(), { 'movieId': root.id })
+        director (root, args, ctx, info) {
+            return directorByMovieId(ctx.movieService.allDirectors(), { 'movieId': root.id })
         }
     }
 }

@@ -41,7 +41,7 @@ Most likely your local GraphQL server will be available at http://localhost:3000
 
 ## Repository Evolution 🤤
 This repository won't stale at the Workshop date. It will continue growing with extra features over time as a best practice example project of GraphQL. Future development will include:
-- Tests 
+- More tests 
 - GraphQL mutations
 - GraphQL subscriptions
 - Schema sticking 
