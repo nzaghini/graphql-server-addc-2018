@@ -1,8 +1,5 @@
 import fs from 'fs'
-import {
-    makeExecutableSchema,
-    addMockFunctionsToSchema
-} from 'graphql-tools'
+import { makeExecutableSchema } from 'graphql-tools'
 import { graphql } from 'graphql'
 import resolvers from '../src/resolvers'
 import mockMovieService from './mocks/mockMovieService'
@@ -37,30 +34,12 @@ describe('Schema', () => {
     // Array of case types
     const cases = [allMoviesTestCase]
     const typeDefs = fs.readFileSync('./src/schemas/Movie.graphql', 'utf8')
-    const mockSchema = makeExecutableSchema({ typeDefs, resolvers })
-
-    // Here we specify the return payloads of mocked types
-    addMockFunctionsToSchema({
-        schema: mockSchema,
-        mocks: {
-            Movie: () => ({
-                id: 1,
-                title: 'Interstellar',
-                year: 2014
-            }),
-            Director: () => ({
-                id: 1,
-                firstName: 'Christopher',
-                lastName: 'Nolan'
-            })
-        },
-        preserveResolvers: true
-    })
+    const schema = makeExecutableSchema({ typeDefs, resolvers })
 
     cases.forEach(obj => {
         const { id, query, variables, context, expected } = obj
         test(`query: ${id}`, async () => {
-            const result = await graphql(mockSchema, query, null, context, variables)
+            const result = await graphql(schema, query, null, context, variables)
             return expect(result).toEqual(expected)
         })
     })
