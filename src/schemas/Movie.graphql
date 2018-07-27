@@ -1,20 +1,20 @@
 type Director {
-  id: ID
+  id: ID!
   firstName: String!
   lastName: String!
-  movies: [Movie]
+  movies: [Movie!]
 }
 
 type Movie {
-  id: ID
+  id: ID!
   title: String!
   year: String!
   director: Director!
 }
 
 type Query {
-  allDirectors: [Director]
-  allMovies: [Movie]
+  directors: [Director]
+  movies: [Movie]
   directorOf(movieId: ID!): Director
   moviesBy(directorId: ID!): [Movie]
 }

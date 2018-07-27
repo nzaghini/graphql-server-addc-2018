@@ -2,10 +2,10 @@ import _ from 'lodash'
 
 const resolvers = {
     Query: {
-        allDirectors (root, args, ctx, info) {
+        directors (root, args, ctx, info) {
             return ctx.movieService.allDirectors()
         },
-        allMovies (root, args, ctx, info) {
+        movies (root, args, ctx, info) {
             return ctx.movieService.allMovies()
         },
         directorOf (root, args, ctx, info) {
