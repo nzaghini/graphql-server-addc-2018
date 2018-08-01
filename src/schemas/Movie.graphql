@@ -13,8 +13,8 @@ type Movie {
 }
 
 type Query {
-  directors: [Director]
-  movies: [Movie]
+  directors: [Director!]
+  movies: [Movie!]
   directorOf(movieId: ID!): Director
-  moviesBy(directorId: ID!): [Movie]
+  moviesBy(directorId: ID!): [Movie!]
 }

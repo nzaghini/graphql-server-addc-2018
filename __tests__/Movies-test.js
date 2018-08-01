@@ -8,7 +8,7 @@ const allMoviesTestCase = {
     id: 'All Movies and Related Directors Test Case',
     query: `
       query {
-        allMovies {
+        movies {
            id 
            title
            year
@@ -25,7 +25,7 @@ const allMoviesTestCase = {
     context: { movieService: mockMovieService },
 
     // Expected result
-    expected: { data: { allMovies: [
+    expected: { data: { movies: [
         {id: '1', title: 'Interstellar', year: '2014', director: { firstName: 'Christopher', lastName: 'Nolan' }},
         {id: '2', title: 'Mad Max: Fury Road', year: '2015', director: { firstName: 'George', lastName: 'Miller' }}] } }
 }
